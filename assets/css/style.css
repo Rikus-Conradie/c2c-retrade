@@ -1,0 +1,265 @@
+/* 
+   GLOBAL STYLES
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* The top navigation bar*/
+
+.navbar {
+    background-color: #1a1a2e;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ReTrade logo */
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.logo span {
+    color: #00b4d8;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #ccc;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00b4d8;
+}
+
+/* 
+   BUTTONS
+ */
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background-color: #00b4d8;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0096c7;
+}
+
+.btn-danger {
+    background-color: #e63946;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c1121f;
+}
+
+.btn-success {
+    background-color: #2dc653;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #25a244;
+}
+
+/* 
+   FORMS
+   Login, register, create listing
+ */
+
+.form-container {
+    max-width: 500px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 25px;
+    color: #1a1a2e;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #00b4d8;
+    background: #fff;
+}
+
+/* 
+   LISTINGS GRID
+ */
+
+.listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.listing-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.listing-card:hover {
+    transform: translateY(-4px);
+}
+
+.listing-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.listing-card-body {
+    padding: 15px;
+}
+
+.listing-card-body h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #1a1a2e;
+}
+
+.listing-card-body .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #00b4d8;
+}
+
+.listing-card-body .category {
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* 
+   PAGE CONTAINER
+ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-title {
+    font-size: 28px;
+    color: #1a1a2e;
+    margin-bottom: 30px;
+}
+
+/* 
+   ALERTS
+   Success and error messages
+ */
+
+.alert {
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* 
+   FOOTER
+ */
+
+footer {
+    background-color: #1a1a2e;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    font-size: 14px;
+}

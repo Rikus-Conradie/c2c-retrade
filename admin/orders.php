@@ -1,0 +1,96 @@
+<?php
+// Admin page to view and manage all orders on the platform
+require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/auth.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+requireLogin();
+if (!isAdmin() && !isModerator() && !isSupport()) {
+    header("Location: ../index.php");
+    exit();
+}
+
+// Fetch all orders with buyer, seller and listing details
+$stmt = $pdo->query("SELECT orders.*, 
+                     listings.title, 
+                     listings.price,
+                     buyers.name AS buyer_name,
+                     sellers.name AS seller_name
+                     FROM orders
+                     JOIN listings ON orders.listing_id = listings.id
+                     JOIN users AS buyers ON orders.buyer_id = buyers.id
+                     JOIN users AS sellers ON orders.seller_id = sellers.id
+                     ORDER BY orders.created_at DESC");
+$orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - ReTrade Admin</title>
+    <link rel="stylesheet" href="/c2c-retrade/assets/css/style.css">
+    <style>
+        .admin-container { max-width:1200px; margin:40px auto; padding:0 20px; }
+        .admin-nav { display:flex; gap:15px; margin-bottom:30px; flex-wrap:wrap; }
+        .admin-nav a { background:#1a1a2e; color:#fff; padding:10px 20px; border-radius:6px; font-size:14px; }
+        .admin-nav a:hover { background:#00b4d8; }
+        .admin-table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+        .admin-table th { background:#1a1a2e; color:#fff; padding:14px; text-align:left; font-size:14px; }
+        .admin-table td { padding:14px; border-bottom:1px solid #f0f0f0; font-size:14px; }
+        .status-pending   { color:#f4a261; font-weight:600; }
+        .status-accepted  { color:#2dc653; font-weight:600; }
+        .status-rejected  { color:#e63946; font-weight:600; }
+        .status-completed { color:#00b4d8; font-weight:600; }
+        .status-cancelled { color:#888;    font-weight:600; }
+    </style>
+</head>
+<body>
+
+<?php require_once __DIR__ . '/../includes/header.php'; ?>
+
+<div class="admin-container">
+    <h2 class="page-title">Manage Orders</h2>
+
+    <div class="admin-nav">
+        <a href="index.php">Dashboard</a>
+        <a href="users.php">Manage Users</a>
+        <a href="listings.php">Manage Listings</a>
+        <a href="orders.php">Manage Orders</a>
+    </div>
+
+    <table class="admin-table">
+        <tr>
+            <th>ID</th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Buyer</th>
+            <th>Seller</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+        <?php foreach ($orders as $order): ?>
+            <tr>
+                <td><?= $order['id'] ?></td>
+                <td><?= htmlspecialchars($order['title']) ?></td>
+                <td>R<?= number_format($order['price'], 2) ?></td>
+                <td><?= htmlspecialchars($order['buyer_name']) ?></td>
+                <td><?= htmlspecialchars($order['seller_name']) ?></td>
+                <td class="status-<?= $order['status'] ?>"><?= ucfirst($order['status']) ?></td>
+                <td><?= date('d M Y', strtotime($order['created_at'])) ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
+
+<footer>
+    <p>&copy; 2026 ReTrade. All rights reserved.</p>
+</footer>
+
+<script src="/c2c-retrade/assets/js/main.js"></script>
+</body>
+</html>
