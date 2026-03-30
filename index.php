@@ -6,6 +6,8 @@ require_once 'includes/db.php';
 require_once 'includes/auth.php';
 require_once 'includes/header.php';
 
+
+
 $stmt = $pdo->query("SELECT listings.*, users.name AS seller_name 
                      FROM listings 
                      JOIN users ON listings.user_id = users.id 

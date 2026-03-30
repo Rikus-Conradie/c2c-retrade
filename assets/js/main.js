@@ -1,10 +1,5 @@
-// Handles all front-end interactions on the site
+
 document.addEventListener('DOMContentLoaded', function() {
-
-
-    // AUTO HIDE ALERTS
-    // Success and error messages disappear after 4 seconds
-
     const alerts = document.querySelectorAll('.alert');
     alerts.forEach(function(alert) {
         setTimeout(function() {
@@ -16,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 4000);
     });
 
-    // Asks the user to confirm before deleting a listing
 
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach(function(button) {
@@ -45,5 +39,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
 });
