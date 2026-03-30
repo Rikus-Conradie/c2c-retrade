@@ -1,12 +1,7 @@
 <?php
-// http://localhost/c2c-retrade/index.php 
-// It shows the latest listings and a search bar
-
-require_once 'includes/db.php';
-require_once 'includes/auth.php';
-require_once 'includes/header.php';
-
-
+require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/header.php';
 
 $stmt = $pdo->query("SELECT listings.*, users.name AS seller_name 
                      FROM listings 
@@ -36,7 +31,6 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($listings as $listing): ?>
                 <a href="listing-detail.php?id=<?= $listing['id'] ?>">
                     <div class="listing-card">
-                        <!-- Show image if it exists, otherwise show a placeholder -->
                         <?php if ($listing['image']): ?>
                             <img src="assets/images/<?= htmlspecialchars($listing['image']) ?>" alt="<?= htmlspecialchars($listing['title']) ?>">
                         <?php else: ?>
@@ -57,7 +51,6 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 </div>
 
-<!-- Footer -->
 <footer>
     <p>&copy; 2026 ReTrade. All rights reserved.</p>
 </footer>
