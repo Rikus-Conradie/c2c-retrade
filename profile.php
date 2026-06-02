@@ -31,7 +31,7 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - ReTrade</title>
-    <link rel="stylesheet" href="/c2c-retrade/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
@@ -59,7 +59,7 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($listings as $listing): ?>
                 <div class="listing-card">
                     <?php if ($listing['image']): ?>
-                        <img src="/c2c-retrade/assets/images/<?= htmlspecialchars($listing['image']) ?>" 
+                        <img src="/assets/images/<?= htmlspecialchars($listing['image']) ?>" 
                              alt="<?= htmlspecialchars($listing['title']) ?>">
                     <?php else: ?>
                         <div style="width:100%; height:160px; background:#eee; 
@@ -95,6 +95,6 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <p>&copy; 2026 ReTrade. All rights reserved.</p>
 </footer>
 
-<script src="/c2c-retrade/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

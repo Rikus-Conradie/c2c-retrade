@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isLoggedIn()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($listing['title']) ?> - ReTrade</title>
-    <link rel="stylesheet" href="/c2c-retrade/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isLoggedIn()) {
     <div class="listing-detail">
         <!-- Listing image -->
         <?php if ($listing['image']): ?>
-            <img src="/c2c-retrade/assets/images/<?= htmlspecialchars($listing['image']) ?>" 
+            <img src="/assets/images/<?= htmlspecialchars($listing['image']) ?>" 
                  alt="<?= htmlspecialchars($listing['title']) ?>"
                  style="width:100%; max-height:400px; object-fit:cover; border-radius:10px; margin-bottom:30px;">
         <?php else: ?>
@@ -118,6 +118,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isLoggedIn()) {
     <p>&copy; 2026 ReTrade. All rights reserved.</p>
 </footer>
 
-<script src="/c2c-retrade/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

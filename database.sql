@@ -1,8 +1,4 @@
--- This database is saving users, listing, orders and reviews.
--- All of this will be seen on http://localhost/phpmyadmin
 
-CREATE DATABASE IF NOT EXISTS c2c_retrade;
-USE c2c_retrade;
 
 CREATE TABLE users ( -- This stores every person who registers on Retrade
     id INT AUTO_INCREMENT PRIMARY KEY,

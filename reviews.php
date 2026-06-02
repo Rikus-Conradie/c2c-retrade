@@ -73,7 +73,7 @@ $received_reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews - ReTrade</title>
-    <link rel="stylesheet" href="/c2c-retrade/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <style>
         .review-card {
             background: #fff;
@@ -155,6 +155,6 @@ $received_reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <p>&copy; 2026 ReTrade. All rights reserved.</p>
 </footer>
 
-<script src="/c2c-retrade/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

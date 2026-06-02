@@ -33,7 +33,7 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Listings - ReTrade Admin</title>
-    <link rel="stylesheet" href="/c2c-retrade/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <style>
         .admin-container { max-width:1200px; margin:40px auto; padding:0 20px; }
         .admin-nav { display:flex; gap:15px; margin-bottom:30px; flex-wrap:wrap; }
@@ -104,6 +104,6 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <p>&copy; 2026 ReTrade. All rights reserved.</p>
 </footer>
 
-<script src="/c2c-retrade/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>
