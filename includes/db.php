@@ -1,5 +1,5 @@
 <?php
-// We are creating this file to just connect to mySQL database
+// I am creating this file to just connect to mySQL database
 
 $host = "localhost";        // XAMPP will run MySQL locally
 $dbname = "c2c_retrade";   // Create the Databse

@@ -1,16 +1,27 @@
 <?php
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/includes/header.php';
 
-$stmt = $pdo->query("SELECT listings.*, users.name AS seller_name 
-                     FROM listings 
-                     JOIN users ON listings.user_id = users.id 
-                     WHERE listings.status = 'active' 
-                     ORDER BY listings.created_at DESC 
+$stmt = $pdo->query("SELECT listings.*, users.name AS seller_name
+                     FROM listings
+                     JOIN users ON listings.user_id = users.id
+                     WHERE listings.status = 'active'
+                     ORDER BY listings.created_at DESC
                      LIMIT 6");
 $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReTrade - C2C Marketplace</title>
+    <link rel="stylesheet" href="/c2c-retrade/assets/css/style.css">
+</head>
+<body>
+
+<?php require_once __DIR__ . '/includes/header.php'; ?>
 
 <section class="hero">
     <div class="hero-content">
@@ -55,5 +66,6 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <p>&copy; 2026 ReTrade. All rights reserved.</p>
 </footer>
 
+<script src="/c2c-retrade/assets/js/main.js"></script>
 </body>
 </html>

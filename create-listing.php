@@ -2,10 +2,6 @@
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/auth.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
 // If not logged in, send them to login page
 requireLogin();
 
@@ -21,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($title) || empty($description) || empty($price) || empty($category)) {
         $error = "Please fill in all fields.";
     } else {
-        // Handle image upload if one was provided
         $image = null;
         if (!empty($_FILES['image']['name'])) {
             $allowed = ['jpg', 'jpeg', 'png', 'gif'];

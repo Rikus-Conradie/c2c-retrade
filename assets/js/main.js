@@ -21,9 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Filters listing cards in real time as the user types
-
+    
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
         searchInput.addEventListener('keyup', function() {
@@ -31,10 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.listing-card');
             cards.forEach(function(card) {
                 const title = card.querySelector('h3').textContent.toLowerCase();
+                const wrapper = card.closest('a') || card;
                 if (title.includes(searchValue)) {
-                    card.style.display = 'block';
+                    wrapper.style.display = '';
                 } else {
-                    card.style.display = 'none';
+                    wrapper.style.display = 'none';
                 }
             });
         });

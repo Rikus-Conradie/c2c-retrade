@@ -1,23 +1,12 @@
 <?php
-// This file is the top section that appears on every page of the site
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReTrade - C2C Marketplace</title>
-    <link rel="stylesheet" href="/c2c-retrade/assets/css/style.css">
-</head>
-<body>
-
 <nav class="navbar">
     <div class="nav-container">
         <a href="/c2c-retrade/index.php" class="logo">Re<span>Trade</span></a>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 
         <ul class="nav-links">
             <li><a href="/c2c-retrade/listings.php">Browse</a></li>
@@ -29,7 +18,6 @@ if (session_status() === PHP_SESSION_NONE) {
                 <li><a href="/c2c-retrade/profile.php">Profile</a></li>
 
                 <?php if (isAdmin() || isModerator() || isSupport()): ?>
-                    <!-- This link only shows for admin roles -->
                     <li><a href="/c2c-retrade/admin/index.php">Admin</a></li>
                 <?php endif; ?>
 
@@ -41,3 +29,4 @@ if (session_status() === PHP_SESSION_NONE) {
         </ul>
     </div>
 </nav>
+<script>function toggleMenu() { document.querySelector('.nav-links').classList.toggle('open'); }</script>
