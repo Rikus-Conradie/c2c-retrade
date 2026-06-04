@@ -31,7 +31,7 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - ReTrade</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 </head>
 <body>
 
@@ -46,9 +46,7 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p style="margin-top:8px;">
             Role: <strong style="color:#00b4d8;"><?= ucfirst($user['role']) ?></strong>
         </p>
-        <p style="color:#888; font-size:13px; margin-top:8px;">
-            Member since <?= date('d M Y', strtotime($user['created_at'])) ?>
-        </p>
+
     </div>
 
     <!-- User's Listings -->
@@ -59,7 +57,7 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($listings as $listing): ?>
                 <div class="listing-card">
                     <?php if ($listing['image']): ?>
-                        <img src="/assets/images/<?= htmlspecialchars($listing['image']) ?>" 
+                        <img src="<?= BASE_URL ?>/assets/images/<?= htmlspecialchars($listing['image']) ?>" 
                              alt="<?= htmlspecialchars($listing['title']) ?>">
                     <?php else: ?>
                         <div style="width:100%; height:160px; background:#eee; 
@@ -92,9 +90,9 @@ $listings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <footer>
-    <p>&copy; 2026 ReTrade. All rights reserved.</p>
+    <p>2026 ReTrade</p>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script src="<?= BASE_URL ?>/assets/js/main.js"></script>
 </body>
 </html>

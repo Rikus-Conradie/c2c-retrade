@@ -30,7 +30,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users - ReTrade Admin</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
     <style>
         .admin-container { max-width:1200px; margin:40px auto; padding:0 20px; }
         .admin-nav { display:flex; gap:15px; margin-bottom:30px; flex-wrap:wrap; }
@@ -95,9 +95,9 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <footer>
-    <p>&copy; 2026 ReTrade. All rights reserved.</p>
+    <p>2026 ReTrade</p>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script src="<?= BASE_URL ?>/assets/js/main.js"></script>
 </body>
 </html>
